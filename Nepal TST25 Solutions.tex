@@ -24,7 +24,7 @@ d_2-d_1, d_3-d_2, \dots, d_k-d_{k-1}
 \end{align*}
 forms a permutation of an arithmetic progression. \\
 \noindent\rule{12cm}{0.4pt} \\
-\noindent \textit{Solution. } The only $n$ that satisfies the condition(except $n=1$) is $n=p$, $n=p^2$, $n=pq$, and n=10 for some primes $p$ and $q$.
+\noindent \textit{Solution. } We claim the only $n$ that satisfies the condition(except $n=1$) is $n=p$, $n=p^2$, $n=pq$, and n=10 for some primes $p$ and $q$.
 \\ \\ \\
 $\boxed{\textbf{CLAIM}: d_k-d_{k-1} \text{ is always the largest term in the arithmetic progression.}}$ \\ \\
 $\textit{proof. }$ Let $p_0$ be the smallest prime dividing $n$, then,
@@ -47,5 +47,39 @@ Now, notice:
 \end{center}
 Giving us that $\frac{k-1}{4} < n-1$.
 However, if k=5, we get $n<n-1$ which is obviously a contradiction, and thus we get that no $k\ge5$ works. $\square$
-
+ \\ \\ \\
+ If $n$ has a maximum of 4 factors, then we have four cases.
+ \\ \\
+ \textbf{Case 1. } $n=p$ for some prime $p$ always works as one term is always in an A.P.
+ \\ \\
+ \textbf{Case 2. } $n=p^2$ for some prime $p$ always works as two terms are always in an A.P.
+ \\ \\
+ \textbf{Case 3. } $n=p^3$ for some prime $p$.
+ \\ 
+ \indent Here, the factors of $n$ come out to be $1, p, p^2, p^3$, giving us the permutation of the A.P as $p-1, p^2-p, p^3-p^2$.
+ \\ For them to be in an A.P, the following must hold:
+ \begin{center}
+    $(p^3-p^2) - (p^2-p) = (p^2-p) - (p-1)$ \\
+    $(p^3-p^2) = 2(p^2-p) - (p-1)$ \\
+    $p^3-p^2 = 2p^2-2p-p+1$ \\
+    $p^3-p^2=2p^2-3p+1$ \\
+    For this to hold, since $p$ divides the LHS, it also must divide the RHS. But, $p|2p^2-3p+1 \implies p|1$ which is a contradiction, thus $n=p^3$ does not work. The other permutation of the A.P gives a similar result.
+ \end{center}
+ $\textbf{Case 4. } n=pq$ for some primes $p$ and $q$.
+ \\
+ Without loss of generality, let $q>p$. Then, the factors would be $1, p, q, pq$ with the permutation of the A.P being $p-1, q-p, pq-q$ which gives us two subcases.
+ \\ \\ $\textbf{Subcase 4.1. }$ The A.P is $p-1, q-p, pq-q$ in ascending order.
+ \begin{center}
+    $(pq-q)-(q-p) = (q-p)-(p-1)$ \\
+    $2(q-p) - (p-1) = pq-q$ \\
+    $3q-pq-3p=-1$ \\
+    $(q+3)(p-3)=-8 \implies q=5, p=2 \implies n=10$ which works upon checking.
+ \end{center}
+ \indent $\textbf{Subcase 4.2.}$
+ \begin{center}
+    $(pq-q)-(p-1)=(p-1)-(q-p)$ \\
+    $pq-3p=-2$ \\
+    $p(q-3)=-2 \implies p=q=2$, contradicting $q>p$ thus this case doesn't work.
+ \end{center}
+ Thus, we have shown that $n=p$, $p^2$, $pq$, $10$ for all primes $p$ and $q$ are the only solutions to $n$ apart from $n=1$. $\blacksquare$
 \end{document}
